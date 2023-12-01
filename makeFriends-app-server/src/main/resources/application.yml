@@ -1,0 +1,40 @@
+server:
+  port: 18080
+---
+spring:
+  application:
+    name: app-server
+  redis:
+    port: 6379
+    host: 192.168.136.160
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.136.160:8848
+---
+dubbo:
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    check: false
+---
+mf:
+  sms:
+    signName: 物流云商
+    templateCode: SMS_106590012
+    accessKey: LTAI4GKgob9vZ53k2SZdyAC7
+    secret: LHLBvXmILRoyw0niRSBuXBZewQ30la
+  oss:
+    accessKey: LTAI5tMFXN38w12wctKsvZP8
+    secret: 46b4FsvW3VaoSNrdYZkw1N3m7X7HYy
+    endpoint: oss-cn-fuzhou.aliyuncs.com
+    bucketName: make-friends001
+    url: https://make-friends001.oss-cn-fuzhou.aliyuncs.com/
+  aip:
+    appId: 42745977
+    apiKey: XynYqVhN6y11qwA1kBRnlUHC
+    secretKey: TZRtf1iyw2UkhiN6GH3pixTyvRPZ2Wnp
+  huanxin:
+    appkey: 1101231121210206#makingfriends
+    clientId: YXA6WA7grpRpReqsdGO2gMRJAQ
+    clientSecret: YXA6wM87CBsS8pmfYkuidEw2GIaS7Uo

@@ -1,0 +1,32 @@
+server:
+  port: 18081
+---
+spring:
+  application:
+    name: makeFriends-dubbo-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/makefriends?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123123
+  cloud:
+    nacos:
+      discovery:
+       server-addr: 192.168.136.160:8848
+---
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20881
+  registry:
+    address: spring-cloud://localhost
+  scan:
+    base-packages: com.makeFriends.dubbo.api
+---
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tb_ #表明前缀
+      id-type: auto   #id增长策略
+
+
